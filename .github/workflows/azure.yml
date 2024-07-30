@@ -31,9 +31,9 @@ jobs:
       run: |
         az webapp config container set --name ${{ secrets.APP_SERVICE_NAME }} \
                                        --resource-group ${{ secrets.RESOURCE_GROUP }} \
-                                       --docker-custom-image-name ${{ secrets.ACR_LOGIN_SERVER }}/fishimage:${{ github.sha }} \
-                                       --docker-registry-server-url https://${{ secrets.ACR_LOGIN_SERVER }} \
-                                       --docker-registry-server-user ${{ secrets.ACR_USERNAME }} \
-                                       --docker-registry-server-password ${{ secrets.ACR_PASSWORD }}
+                                       --custom-image-name ${{ secrets.ACR_LOGIN_SERVER }}/fishimage:${{ github.sha }} \
+                                       --registry-server-url https://${{ secrets.ACR_LOGIN_SERVER }} \
+                                       --registry-server-user ${{ secrets.ACR_USERNAME }} \
+                                       --registry-server-password ${{ secrets.ACR_PASSWORD }}
     - name: Log out from Azure
       run: az logout
